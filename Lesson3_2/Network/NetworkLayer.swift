@@ -30,13 +30,25 @@ class NetworkLayer{
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
         
-        let body: [String: Any] = [
-            "model": "gpt-40",
-            "messges": [
-                ["role": "system", "content": "You are smart companion."],
-                ["role": "user", "content": "Hallo!"]
-            ]
-        ]
+        let bodyStruct = APIRequest(model: "gpt-4o", messages: [
+            Message(role: "system", content: "You are professional programmer"),
+            Message(role: "user", content: prompt)
+        ])
+  
+        do{
+            let body = try JSONEncoder().encode(bodyStruct)
+            urlRequest.httpBody = body
+        } catch{
+            print(error.localizedDescription)
+        }
+        
+//        let body: [String: Any] = [
+//            "model": "gpt-40",
+//            "messges": [
+//                ["role": "system", "content": "You are smart companion."],
+//                ["role": "user", "content": "Hallo!"]
+//            ]
+//        ]
         URLSession.shared.dataTask(with: urlRequest){ data, response, error in
             guard error == nil, let data = data else { return }
             do{

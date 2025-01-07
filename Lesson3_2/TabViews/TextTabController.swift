@@ -11,12 +11,13 @@ class TextTabController: UIViewController {
 
     private let networkLayer = NetworkLayer()
     private let screenWidth: CGFloat = UIScreen.main.bounds.width
+    private var messages = [Message]()
 
     lazy var aiText: UITextView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.isEditable = false
         // MARK: - Temporary text there.
-        $0.text = "Таким образом, курс на социально-ориентированный национальный проект в значительной степени обусловливает важность инновационных методов управления процессами. С учётом сложившейся международной обстановки, постоянный количественный рост и сфера нашей активности не оставляет шанса для экономической целесообразности принимаемых решений. Как принято считать, интерактивные прототипы формируют глобальную экономическую сеть и при этом — своевременно верифицированы."
+        $0.text = ""
         $0.backgroundColor = .white
         $0.font = UIFont.systemFont(ofSize: 20)
         $0.textColor = .black
@@ -50,7 +51,9 @@ class TextTabController: UIViewController {
         $0.setTitle("Send prompt", for: .normal)
         $0.layer.cornerRadius = 20
         return $0
-    }(UIButton())
+    }(UIButton(primaryAction: UIAction(handler: { _ in
+        self.sendRequest()
+    })))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,5 +81,16 @@ class TextTabController: UIViewController {
             promptTextView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40),
             promptTextView.topAnchor.constraint(equalTo: aiText.bottomAnchor, constant: 20)
         ])
+    }
+    
+    func sendRequest(){
+        networkLayer.sendRequest(prompt: promptTextView.text ?? "") { choices in
+            print(choices.first?.message.content ?? "Ошипко")
+            self.messages.append(choices[0].message)
+            self.aiText.text = choices[0].message.content
+        
+            
+            
+        }
     }
 }
