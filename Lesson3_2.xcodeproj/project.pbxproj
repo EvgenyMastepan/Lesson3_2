@@ -17,6 +17,9 @@
 		750DA7072D296906004EBE5E /* ImageTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DA7062D296906004EBE5E /* ImageTabController.swift */; };
 		750DA7092D29691D004EBE5E /* SettingsTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DA7082D29691D004EBE5E /* SettingsTabController.swift */; };
 		750DA7322D2D6CAB004EBE5E /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750DA7312D2D6CAA004EBE5E /* model.swift */; };
+		7547A09B2D2E6F7F0098CA11 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547A09A2D2E6F7F0098CA11 /* Extensions.swift */; };
+		7547A09D2D2E708B0098CA11 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547A09C2D2E708B0098CA11 /* CellView.swift */; };
+		7547A0A02D2E73EC0098CA11 /* TableCollectionSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7547A09F2D2E73EC0098CA11 /* TableCollectionSetup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		750DA7062D296906004EBE5E /* ImageTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTabController.swift; sourceTree = "<group>"; };
 		750DA7082D29691D004EBE5E /* SettingsTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTabController.swift; sourceTree = "<group>"; };
 		750DA7312D2D6CAA004EBE5E /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		7547A09A2D2E6F7F0098CA11 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7547A09C2D2E708B0098CA11 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		7547A09F2D2E73EC0098CA11 /* TableCollectionSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCollectionSetup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 		750DA6E92D294B66004EBE5E /* Lesson3_2 */ = {
 			isa = PBXGroup;
 			children = (
+				7547A0992D2E6F510098CA11 /* Extensions */,
 				750DA6FE2D295401004EBE5E /* SetUp */,
 				750DA6FF2D29548F004EBE5E /* Model */,
 				750DA7002D295497004EBE5E /* Network */,
@@ -104,11 +111,29 @@
 		750DA7032D2968A4004EBE5E /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
-				750DA7042D2968F2004EBE5E /* TextTabController.swift */,
+				7547A09E2D2E72630098CA11 /* TextTab */,
 				750DA7062D296906004EBE5E /* ImageTabController.swift */,
 				750DA7082D29691D004EBE5E /* SettingsTabController.swift */,
 			);
 			path = TabViews;
+			sourceTree = "<group>";
+		};
+		7547A0992D2E6F510098CA11 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7547A09A2D2E6F7F0098CA11 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7547A09E2D2E72630098CA11 /* TextTab */ = {
+			isa = PBXGroup;
+			children = (
+				750DA7042D2968F2004EBE5E /* TextTabController.swift */,
+				7547A09C2D2E708B0098CA11 /* CellView.swift */,
+				7547A09F2D2E73EC0098CA11 /* TableCollectionSetup.swift */,
+			);
+			path = TextTab;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,11 +206,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7547A0A02D2E73EC0098CA11 /* TableCollectionSetup.swift in Sources */,
 				750DA7022D295858004EBE5E /* NetworkLayer.swift in Sources */,
+				7547A09B2D2E6F7F0098CA11 /* Extensions.swift in Sources */,
 				750DA7092D29691D004EBE5E /* SettingsTabController.swift in Sources */,
 				750DA6EF2D294B66004EBE5E /* TabBarController.swift in Sources */,
 				750DA7052D2968F2004EBE5E /* TextTabController.swift in Sources */,
 				750DA7072D296906004EBE5E /* ImageTabController.swift in Sources */,
+				7547A09D2D2E708B0098CA11 /* CellView.swift in Sources */,
 				750DA6EB2D294B66004EBE5E /* AppDelegate.swift in Sources */,
 				750DA6ED2D294B66004EBE5E /* SceneDelegate.swift in Sources */,
 				750DA7322D2D6CAB004EBE5E /* model.swift in Sources */,

@@ -6,15 +6,20 @@
 //
 
 import Foundation
+
+// MARK: - Class about work with net.
 class NetworkLayer{
+    // Api Key. May be add this in settings.
     private let apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhNWVmMzI0LTc1NmUtNDVlOC04YWYxLTFlMWNkMDRkMDE1NyIsImlzRGV2ZWxvcGVyIjp0cnVlLCJpYXQiOjE3MzUzOTA3NjIsImV4cCI6MjA1MDk2Njc2Mn0.xL2fhtLOtHp_K4Xn_bEAhuKgnRwYlUGwaRk-XxirgdY"
     
+// Main functrion for excange data with server.
     func sendRequest(prompt: String, completion: @escaping ([Choice]) -> Void){
-// Url assignment
+        
+// URL Setup
         var urlComponents = URLComponents()
             urlComponents.scheme = "https"
             urlComponents.host = "bothub.chat"
-//            urlComponents.path = "/api/v2/openai/v1/images/generations"
+//            urlComponents.path = "/api/v2/openai/v1/images/generations/"
             urlComponents.path = "/api/v2/openai/v1/chat/completions/"
             urlComponents.queryItems = [
                 URLQueryItem(name: "api_key", value: apiKey),
@@ -38,17 +43,10 @@ class NetworkLayer{
         do{
             let body = try JSONEncoder().encode(bodyStruct)
             urlRequest.httpBody = body
-        } catch{
+        } catch {
             print(error.localizedDescription)
         }
-        
-//        let body: [String: Any] = [
-//            "model": "gpt-40",
-//            "messges": [
-//                ["role": "system", "content": "You are smart companion."],
-//                ["role": "user", "content": "Hallo!"]
-//            ]
-//        ]
+
         URLSession.shared.dataTask(with: urlRequest){ data, response, error in
             guard error == nil, let data = data else { return }
             do{
