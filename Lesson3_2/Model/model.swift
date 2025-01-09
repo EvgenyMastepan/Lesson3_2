@@ -26,3 +26,21 @@ struct APIRequest: Encodable{
     let model: String
     let messages: [Message]
 }
+
+// MARK: - Image request
+struct ImgRequest: Encodable{
+    let model: String
+    let prompt: String
+    let size: String
+    let quality: String
+    let n: Int
+}
+// MARK: - Image response
+struct ImgResponse: Decodable{
+    let created: Int32
+    let data: [Urls]
+    
+}
+struct Urls: Decodable{
+    let url: String
+}

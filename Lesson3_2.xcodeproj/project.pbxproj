@@ -152,6 +152,8 @@
 			dependencies = (
 			);
 			name = Lesson3_2;
+			packageProductDependencies = (
+			);
 			productName = Lesson3_2;
 			productReference = 750DA6E72D294B66004EBE5E /* Lesson3_2.app */;
 			productType = "com.apple.product-type.application";
@@ -180,6 +182,8 @@
 				Base,
 			);
 			mainGroup = 750DA6DE2D294B66004EBE5E;
+			packageReferences = (
+			);
 			productRefGroup = 750DA6E82D294B66004EBE5E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

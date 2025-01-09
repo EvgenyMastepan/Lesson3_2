@@ -24,7 +24,7 @@ class TextTabController: UIViewController {
         $0.layer.borderColor = UIColor(red: 200.0/255.0, green: 200.0/255.0, blue: 200.0/255.0, alpha: 1.0).cgColor
         $0.layer.borderWidth = 2
         $0.layer.cornerRadius = 20
-        $0.contentInset = UIEdgeInsets(top: ourIndent, left: ourIndent, bottom: ourIndent, right: ourIndent)
+        $0.contentInset = UIEdgeInsets(top: ourIndent, left: 0, bottom: ourIndent, right: 0)
         $0.delegate = self
         $0.dataSource = self
         $0.register(CellView.self, forCellWithReuseIdentifier: CellView.identifier)
@@ -71,7 +71,7 @@ class TextTabController: UIViewController {
     lazy var waitView: UIView = {
         $0.backgroundColor = UIColor.white.withAlphaComponent(0.9)
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.layer.cornerRadius = 30
+        $0.layer.cornerRadius = 20
         return $0
     }(UIView())
     
