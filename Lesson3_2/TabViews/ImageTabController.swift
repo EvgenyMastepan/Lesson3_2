@@ -8,6 +8,7 @@
 import UIKit
 
 
+
 class ImageTabController: UIViewController {
     
     private let networkLayer = NetworkLayer()
@@ -85,9 +86,9 @@ class ImageTabController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubviews(aiImage, promptTextView, sendButton, descriptionTextLabel)
-        sendRequest()
+//        sendRequest()
         setupConstraints()
-//        networkLayer.sendRequest(prompt: "")
+
     }
     
     func setupConstraints(){
@@ -155,6 +156,7 @@ class ImageTabController: UIViewController {
                 guard let imgUrl = URL(string: data[0].url) else { return }
                 
                 self.aiImage.load(url: imgUrl)
+                self.aiImage.reloadInputViews()
                 self.promptTextView.text = ""
                 self.promptTextView.reloadInputViews()
                 self.waitingScreenOff()

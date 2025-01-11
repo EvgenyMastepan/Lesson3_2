@@ -11,6 +11,7 @@ class TextTabController: UIViewController {
     private let networkLayer = NetworkLayer()
     private let screenWidth: CGFloat = UIScreen.main.bounds.width
     private let ourIndent: CGFloat = 5
+    var collectionViewWidth: CGFloat = 100
     var allMessages = [Message]()
     
     lazy var aiTableCollectionView: UICollectionView = {
@@ -96,6 +97,7 @@ class TextTabController: UIViewController {
         super.viewDidLoad()
         self.view.addSubviews(aiTableCollectionView, promptTextView, sendButton, descriptionTextLabel)
         setupConstraints()
+        collectionViewWidth = aiTableCollectionView.bounds.width
     }
     
     // MARK: - Constraints

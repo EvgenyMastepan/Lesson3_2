@@ -12,7 +12,7 @@ class NetworkLayer{
 // Api Key. May be add this in settings?
     private let apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdhNWVmMzI0LTc1NmUtNDVlOC04YWYxLTFlMWNkMDRkMDE1NyIsImlzRGV2ZWxvcGVyIjp0cnVlLCJpYXQiOjE3MzUzOTA3NjIsImV4cCI6MjA1MDk2Njc2Mn0.xL2fhtLOtHp_K4Xn_bEAhuKgnRwYlUGwaRk-XxirgdY"
     
-// Main functrion for excange data with text server.
+// MARK: - Main functrion for excange data with text server.
     func sendRequest(prompt: String, completion: @escaping ([Choice]) -> Void){
         
         var urlComponents = URLComponents()
@@ -33,7 +33,7 @@ class NetworkLayer{
                 urlRequest.httpBody = body
             } catch {
                 print(error.localizedDescription)
-        
+            }
         URLSession.shared.dataTask(with: urlRequest){ data, response, error in
             guard error == nil, let data = data else { return }
             do{
@@ -43,9 +43,9 @@ class NetworkLayer{
                 print(error.localizedDescription)
             }
         }.resume()
-    }
 }
-// Main function for excange data with image server.
+    
+// MARK: - Main function for excange data with image server.
         func sendImgRequest(prompt: String, completion: @escaping ([Urls]) -> Void){
             
             var urlComponents = URLComponents()
@@ -61,7 +61,7 @@ class NetworkLayer{
                 let bodyImgStruct = ImgRequest(model: "dall-e-3",
                                                prompt: prompt,
                                                size: "1024x1024",
-                                               quality: "standart",
+                                               quality: "standard",
                                                n: 1)
                 do{
                     let body = try JSONEncoder().encode(bodyImgStruct)

@@ -37,7 +37,7 @@ struct ImgRequest: Encodable{
 }
 // MARK: - Image response
 struct ImgResponse: Decodable{
-    let created: Int32
+//    let created: Int32
     let data: [Urls]
     
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension TextTabController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension TextTabController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allMessages.count
     }
@@ -19,7 +19,9 @@ extension TextTabController: UICollectionViewDataSource, UICollectionViewDelegat
         
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width - 40, height: 50)
+    }
     
 }
     
